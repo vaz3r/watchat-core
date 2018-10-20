@@ -1,17 +1,17 @@
 from flask import Flask
 import requests
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route('/')
+@application.route('/')
 def hello():
     return 'Hello World!'
 
-@app.route('/version')
+@application.route('/version')
 def version():
     return 'v1.0'
 
-@app.route('/scoreboard')
+@application.route('/scoreboard')
 def scoreboard():
     try:
         headers = {
@@ -30,4 +30,4 @@ def scoreboard():
         return "Exception."
 
 if __name__ == "__main__":
-    app.run()
+    application.run()
