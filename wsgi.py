@@ -10,9 +10,6 @@ def hello():
 
 @application.route('/version')
 def version():
-    process = subprocess.Popen(['python' , 'core.py' ], stdout=subprocess.PIPE)
-    out, err = process.communicate()
-    print(out)
     return 'v1.0'
 
 @application.route('/scoreboard')
@@ -20,15 +17,12 @@ def scoreboard():
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36',
-            'Origin': 'stats.nba.com',
-            'Host': 'stats.nba.com',
-            'Referer': 'https://stats.nba.com/scores/10/19/2018',
-            'x-nba-stats-origin': 'stats',
-            'X-NewRelic-ID': 'VQECWF5UChAHUlNTBwgBVw==',
-            'x-nba-stats-token': 'true',
+            'Origin': 'http://www.espn.com',
+            'Host': 'site.api.espn.com',
+            'Referer': 'http://www.espn.com/nba/scoreboard/_/date/20181019'
         }
 
-        r = requests.get('https://stats.nba.com/stats/scoreboardV2?DayOffset=0&LeagueID=00&gameDate=10%2F19%2F2018', headers=headers)
+        r = requests.get('http://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?lang=en&region=us&calendartype=blacklist&limit=100&dates=20181020&tz=America%2FNew_York', headers=headers)
         return r.text
     except:
         return "Exception."
