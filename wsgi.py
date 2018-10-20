@@ -1,8 +1,10 @@
 from flask import Flask
 import requests
 import json
+from flask_cors import CORS
 
 application = Flask(__name__)
+CORS(application)
 
 @application.route('/')
 def hello():
@@ -10,7 +12,7 @@ def hello():
 
 @application.route('/version')
 def version():
-    return 'v1.8'
+    return 'v1.9'
 
 @application.route('/scoreboard/<date>')
 def scoreboard(date):
