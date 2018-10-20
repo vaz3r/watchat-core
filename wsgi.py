@@ -1,5 +1,6 @@
 from flask import Flask
 import requests
+import json
 
 application = Flask(__name__)
 
@@ -9,7 +10,7 @@ def hello():
 
 @application.route('/version')
 def version():
-    return 'v1.7'
+    return 'v1.8'
 
 @application.route('/scoreboard/<date>')
 def scoreboard(date):
