@@ -1,5 +1,6 @@
 from flask import Flask
 import requests
+import subprocess
 
 application = Flask(__name__)
 
@@ -9,6 +10,9 @@ def hello():
 
 @application.route('/version')
 def version():
+    process = subprocess.Popen(['python' , 'core.py' ], stdout=subprocess.PIPE)
+    out, err = process.communicate()
+    print(out)
     return 'v1.0'
 
 @application.route('/scoreboard')

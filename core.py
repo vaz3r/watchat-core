@@ -1,19 +1,5 @@
-# [START app]
-import logging
-from flask import Flask
 import requests
 
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return 'Hello World!'
-
-@app.route('/version')
-def version():
-    return 'v1.0'
-
-@app.route('/scoreboard')
 def scoreboard():
     try:
         headers = {
@@ -31,9 +17,4 @@ def scoreboard():
     except:
         return "Exception."
 
-@app.errorhandler(500)
-def server_error(e):
-    # Log the error and stacktrace.
-    logging.exception('An error occurred during a request.')
-    return 'An internal error occurred.', 500
-# [END app]
+scoreboard()
