@@ -17,4 +17,4 @@ def scoreboard():
     except:
         return "Exception."
 
-scoreboard()
+print(scoreboard())
