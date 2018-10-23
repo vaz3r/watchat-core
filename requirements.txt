@@ -3,4 +3,3 @@ gunicorn
 
 Flask
 flask-cors
-json
