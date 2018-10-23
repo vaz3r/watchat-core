@@ -1,5 +1,6 @@
 import requests
 import json
+from time import sleep
 
 def scoreboard():
     try:
@@ -56,4 +57,7 @@ def scoreboard():
         jsonData = jsonData.replace("#", jsonObjects)
     except:
         print("Exception")
-scoreboard()
+
+while True:
+    scoreboard()
+    sleep(120)
